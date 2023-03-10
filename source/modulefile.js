@@ -65,7 +65,7 @@ const _EXAMDATA = {
     ]
   },
 
-  teamOneInformation: {
+  teamTwoInformation: {
     teamNumber : 1,
     teamName: "만수무강",
     teamNameStory: "장수를 기원하며 늘 건강하길 기원합니다.",
@@ -99,7 +99,7 @@ const _EXAMDATA = {
     ]
   },
 
-  teamOneInformation: {
+  teamThreeInformation: {
     teamNumber : 1,
     teamName: "만수무강",
     teamNameStory: "장수를 기원하며 늘 건강하길 기원합니다.",
@@ -133,7 +133,7 @@ const _EXAMDATA = {
     ]
   },
 
-  teamOneInformation: {
+  teamFourInformation: {
     teamNumber : 1,
     teamName: "만수무강",
     teamNameStory: "장수를 기원하며 늘 건강하길 기원합니다.",
@@ -167,7 +167,7 @@ const _EXAMDATA = {
     ]
   },
 
-  teamOneInformation: {
+  teamFiveInformation: {
     teamNumber : 1,
     teamName: "만수무강",
     teamNameStory: "장수를 기원하며 늘 건강하길 기원합니다.",
@@ -212,10 +212,10 @@ const _EXAMDATA = {
     "프레임워크활용",
     "Project A(데이터 기반 주식 추천 서비스)",
     "Project B(교통정보제공서비스)",
-    ]
+    ],
   },
   designInformation: {
-    colorSet : ["cadetblue", "salmon", "#ccc", "#333"],
+    colorSet : ["cadetblue", "salmon", "#ccc", "#333", "#fff"],
     breakPoint : [ "768px", "1280px",  "1920px"]
   }
 }

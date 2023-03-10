@@ -5,6 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 <body>
   <div id="root"></div>
@@ -15,83 +22,125 @@
     // 자유롭게 활용
     
     const root = document.getElementById('root')
+    
+    
     let browserWidth={
       mobile : window.matchMedia(`screen and (max-width : ${_EXAMDATA.designInformation.breakPoint[0]})`),
       tablet : window.matchMedia(`screen and (max-width : ${_EXAMDATA.designInformation.breakPoint[1]})`),
       desktop : window.matchMedia(`screen and (max-width : ${_EXAMDATA.designInformation.breakPoint[2]})`)
     }
-
-    function makeElement(tagName, parent, eleId){         //id가 필요한 요소 생성 함수
+    
+    function makeElement(tagName, parent, eleId){                   //id가 필요한 요소 생성 함수
       let elementNew = document.createElement(tagName)
       elementNew.id = eleId
       parent.appendChild(elementNew)
     }
+    
+    makeElement('div',root.parentElement,"devicetest")      //device 판별용 네모
+    const devicetest = document.getElementById('devicetest')
+    devicetest.addEventListener('click',function(){
+      devicetest.style.display = 'none'
+    })
+    devicetest.style.position = 'fixed'
+    devicetest.style.bottom = '0'
+    devicetest.style.width = '20px'
+    devicetest.style.height = '20px'
+    
+    function flexSet(variableName,displayValue,alignItemValue,justifyContentValue){  //Flex 자동세팅 함수
+      variableName.style.display = displayValue;
+      variableName.style.alignItems = alignItemValue;
+      variableName.style.justifyContent = justifyContentValue;
+    }
 
-    function loopMakeElement(tagName, parent, eleLength){ //id가 필요 없는 다수 요소 생성 함수
+    function loopMakeElement(tagName, parent, eleLength){             //id가 필요 없는 다수 요소 생성 함수
       for(let i=0;i<eleLength;i++){
         let elementNew = document.createElement(tagName)
         parent.appendChild(elementNew)
       }
     }
-
     console.dir(root)
     
-    makeElement('div',root,'headerWrap') //헤더랩
+    makeElement('div',root,'headerWrap')                                                //헤더랩
     const headerWrap = document.getElementById('headerWrap')
+    headerWrap.style.backgroundColor=_EXAMDATA.designInformation.colorSet[0]
+    headerWrap.style.color=_EXAMDATA.designInformation.colorSet[4]
     console.dir(headerWrap)
-
+    flexSet(headerWrap,"flex","center","center")
     
-    makeElement('div',headerWrap,'headerUp') //헤더 상단
+    makeElement('div',headerWrap,'headerUp')                     //헤더 상단
     const headerUp = document.getElementById('headerUp')
+    headerUp.textContent = '20230310_javascript_평가제출_박달재'
+    headerUp.style.height = '10vh'
+    headerUp.style.fontSize = '40px'
     
-    makeElement('div',headerWrap,'headerDown') //헤더 하단
-    const headerDown = document.getElementById('headerD')
     
-    makeElement('div',root,'mainWrap')//메인 랩
+    makeElement('div',headerWrap,'headerDown')                    //헤더 하단
+    const headerDown = document.getElementById('headerDown')
+    flexSet(headerDown,"flex","center","center")
+    headerDown.style.height = '5vh'
+    loopMakeElement('div',headerDown,4)                           // 메뉴 요소 생성
+    for(let i=0;i<headerDown.children.length;i++){                //메뉴 요소 스타일링(일괄)
+      headerDown.style
+    }
+
+    makeElement('div',root,'mainWrap')                            //메인 랩
     const mainWrap = document.getElementById('mainWrap')
-    // mainWrap.style.background = "black"
-    console.dir(mainWrap)
-    loopMakeElement('div',mainWrap,10)
+    mainWrap.style.background = "gray"
+    mainWrap.style.width = "100vw"
     
-    
-    mainWrap.children[0].style.backgroundColor = "black"
-    console.log(mainWrap.children[0])
+    loopMakeElement('div',mainWrap,2)                             //메인-좌,우 생성
     for(let i=0;i<mainWrap.children.length;i++){
-      mainWrap.children[i].style.width = "100px"
-      mainWrap.children[i].style.height = "100px"
+      mainWrap.children[i].style.height = "70vh"
       mainWrap.children[i].style.border = "1px black solid"
-      mainWrap.children[0].style.backgroundColor = "gray"
+      
+    }
+    const mainLeft = mainWrap.children[0]                         //메인-좌
+    
+    const mainRight = mainWrap.children[1]                        //메인-우
+
+    console.dir(mainWrap)
+    
+    
+    
+    console.log(mainWrap.children[0])
+    
+    
+    for(let i=0;i<mainWrap.children.length;i++){
+      
       
       if(browserWidth.mobile.matches){
-        mainWrap.children[i].style.backgroundColor = "green"
-        console.dir("몹")
+        // mainWrap.children[i].style.backgroundColor = "green"
         
       }else if(browserWidth.tablet.matches){
-        mainWrap.children[i].style.backgroundColor = "red"
-        console.dir("탭")
+        // mainWrap.children[i].style.backgroundColor = "red"
         
       } else{
-        mainWrap.children[i].style.backgroundColor = "blue"
-        console.dir("컴")
+        // mainWrap.children[i].style.backgroundColor = "blue"
       
       }
     }
     
-    makeElement('div',root,'footerWrap')//푸터 랩
+    makeElement('div',root,'footerWrap')                           //푸터 랩
     const footerWrap = document.getElementById('footerWrap')
+    footerWrap.style.backgroundColor = _EXAMDATA.designInformation.colorSet[3]
+    footerWrap.style.width = "100vw"
+    footerWrap.style.height = "15vh"
     console.dir(footerWrap)
 
     
     
     if(browserWidth.mobile.matches){
+      devicetest.style.backgroundColor = 'red'
       console.log("모바일 입니다.")
       
       
     }else if(browserWidth.tablet.matches){
+      devicetest.style.backgroundColor = 'green'
       console.log("탭 입니다.")
-
+      
     } else{
       console.log("데스크탑 입니다.")
+      devicetest.style.backgroundColor = 'blue'
     
     }
     
