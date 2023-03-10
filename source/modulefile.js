@@ -200,7 +200,7 @@ const _EXAMDATA = {
       },
     ]
   },
-  
+  headersMenuList : ["KDT-2-FullStack","Project-A","Project-B","Project-C"],
   trainingInformation: {
     subject : [  
     "웹프로그래밍기본(HTML5&CSS3)",

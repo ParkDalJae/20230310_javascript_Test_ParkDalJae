@@ -36,7 +36,7 @@
       parent.appendChild(elementNew)
     }
     
-    makeElement('div',root.parentElement,"devicetest")      //device 판별용 네모
+    makeElement('div',root.parentElement,"devicetest")      //device 판별용 네모 (클릭시 제거)
     const devicetest = document.getElementById('devicetest')
     devicetest.addEventListener('click',function(){
       devicetest.style.display = 'none'
@@ -46,10 +46,11 @@
     devicetest.style.width = '20px'
     devicetest.style.height = '20px'
     
-    function flexSet(variableName,displayValue,alignItemValue,justifyContentValue){  //Flex 자동세팅 함수
+    function flexSet(variableName,displayValue,alignItemValue,justifyContentValue,flexDirectionValue){  //Flex 자동세팅 함수
       variableName.style.display = displayValue;
       variableName.style.alignItems = alignItemValue;
       variableName.style.justifyContent = justifyContentValue;
+      variableName.style.flexDirection = flexDirectionValue;
     }
 
     function loopMakeElement(tagName, parent, eleLength){             //id가 필요 없는 다수 요소 생성 함수
@@ -65,48 +66,129 @@
     headerWrap.style.backgroundColor=_EXAMDATA.designInformation.colorSet[0]
     headerWrap.style.color=_EXAMDATA.designInformation.colorSet[4]
     console.dir(headerWrap)
-    flexSet(headerWrap,"flex","center","center")
+    flexSet(headerWrap,"flex","center","center","column")
     
     makeElement('div',headerWrap,'headerUp')                     //헤더 상단
     const headerUp = document.getElementById('headerUp')
+    flexSet(headerUp,"flex","center","center")
     headerUp.textContent = '20230310_javascript_평가제출_박달재'
-    headerUp.style.height = '10vh'
-    headerUp.style.fontSize = '40px'
+    headerUp.style.height = 'auto'
+    headerUp.style.fontSize = '5vw'
     
     
-    makeElement('div',headerWrap,'headerDown')                    //헤더 하단
+    makeElement('div',headerWrap,'headerDown')                    //헤더 하단 - 메뉴영역
     const headerDown = document.getElementById('headerDown')
-    flexSet(headerDown,"flex","center","center")
-    headerDown.style.height = '5vh'
-    loopMakeElement('div',headerDown,4)                           // 메뉴 요소 생성
+    flexSet(headerDown,"flex","center","center","colomn")
+    headerDown.style.height = '4vh'
+    loopMakeElement('div',headerDown,_EXAMDATA.headersMenuList.length)                           // 메뉴 요소 생성
     for(let i=0;i<headerDown.children.length;i++){                //메뉴 요소 스타일링(일괄)
-      headerDown.style
+      headerDown.children[i].textContent = _EXAMDATA.headersMenuList[i]
+      headerDown.children[i].style.fontSize = "2.5vw"
+      headerDown.children[i].style.margin = "10px"
+      headerDown.children[i].addEventListener('click',function(){
+        for(let a=0;a<headerDown.children.length;a++){
+
+          
+        }
+        
+      })
+    }
+    
+    
+    for(let i=0;i<headerWrap.children.length;i++){                 //헤더 스타일 일괄
+      headerWrap.children[i].style.padding = "10px"
     }
 
     makeElement('div',root,'mainWrap')                            //메인 랩
     const mainWrap = document.getElementById('mainWrap')
-    mainWrap.style.background = "gray"
+    flexSet(mainWrap,"flex","","center")
+    // mainWrap.style.background = "gray"
     mainWrap.style.width = "100vw"
-    
+    mainWrap.style.color = _EXAMDATA.designInformation.colorSet[4]
+
     loopMakeElement('div',mainWrap,2)                             //메인-좌,우 생성
     for(let i=0;i<mainWrap.children.length;i++){
       mainWrap.children[i].style.height = "70vh"
       mainWrap.children[i].style.border = "1px black solid"
       
     }
-    const mainLeft = mainWrap.children[0]                         //메인-좌
-    
-    const mainRight = mainWrap.children[1]                        //메인-우
 
+
+    const mainLeft = mainWrap.children[0]                         //메인-좌
+    mainLeft.style.backgroundColor=_EXAMDATA.designInformation.colorSet[0]
+    mainLeft.style.width="20vw"
+    mainLeft.style.fontSize = "40px"
+    loopMakeElement('ul',mainLeft,_EXAMDATA.headersMenuList.length)
+    const ulSub = {                                               //메인-좌-UL
+      munuUl1 : mainLeft.children[0],
+      munuUl2 : mainLeft.children[1],
+      munuUl3 : mainLeft.children[2],
+      munuUl4 : mainLeft.children[3],
+    }             
+    ulSub.munuUl1.textContent = _EXAMDATA.headersMenuList[0]
+    ulSub.munuUl2.textContent = _EXAMDATA.headersMenuList[1]
+    ulSub.munuUl3.textContent = _EXAMDATA.headersMenuList[2]
+    ulSub.munuUl4.textContent = _EXAMDATA.headersMenuList[3]
+    
+    let ulNum =0;
+    for(let prop in ulSub){
+      ulSub[prop].textContent = _EXAMDATA.headersMenuList[ulNum]
+      ulNum++
+        
+    }
+    ulNum=0
+    console.log(ulNum)
+    
+    // loopMakeElement('li',ulSub.munuUl1,_EXAMDATA.trainingInformation.subject.length)
+    // for(let i=0;i<_EXAMDATA.trainingInformation.subject.length;i++){
+      //   ulSub.munuUl1.children[i].textContent = _EXAMDATA.trainingInformation.subject[i]
+      //   ulSub.munuUl1.children[i].style.fontSize = "20px"
+      // }
+      
+    const mainRight = mainWrap.children[1]                        //메인-우
+    mainRight.style.width="60vw"
+    mainRight.style.position="relative"
+      
+    loopMakeElement('div',mainRight,Object.keys(ulSub).length)
+    const rightDivs = {
+      div1 : mainRight.children[0],
+      div2 : mainRight.children[1],
+      div3 : mainRight.children[2],
+      div4 : mainRight.children[3],
+    }
+      
+    for(let i=0;i<Object.keys(rightDivs).length;i++){
+      mainRight.children[i].style.position = "absolute"
+      mainRight.children[i].style.height = "100%"
+      mainRight.children[i].style.width = "100%"
+    }
+
+    // rightDivs.div1.style.top = "0px"
+    // rightDivs.div1.style.left = "0px"
+    rightDivs.div1.style.border = "50px black solid"
+    
+    // rightDivs.div2.style.top = "0px"
+    // rightDivs.div2.style.left = "50%"
+    rightDivs.div2.style.border = "50px red solid"
+    
+    // rightDivs.div3.style.top = "50%"
+    // rightDivs.div3.style.left = "0px"
+    rightDivs.div3.style.border = "50px green solid"
+    
+    // rightDivs.div4.style.top = "50%"
+    // rightDivs.div4.style.left = "50%"
+    rightDivs.div4.style.border = "50px blue solid"
+    
     console.dir(mainWrap)
-    
-    
-    
-    console.log(mainWrap.children[0])
-    
+    let indexZValue = 10
+    for(let i=0;i<headerDown.children.length;i++){                //메뉴 요소 클릭시
+      mainLeft.children[i].addEventListener('click',function(){
+      mainRight.children[i].style.zIndex = indexZValue++;
+      console.log('클릭')
+      })
+    }
     
     for(let i=0;i<mainWrap.children.length;i++){
-      
       
       if(browserWidth.mobile.matches){
         // mainWrap.children[i].style.backgroundColor = "green"
@@ -127,12 +209,9 @@
     footerWrap.style.height = "15vh"
     console.dir(footerWrap)
 
-    
-    
     if(browserWidth.mobile.matches){
       devicetest.style.backgroundColor = 'red'
       console.log("모바일 입니다.")
-      
       
     }else if(browserWidth.tablet.matches){
       devicetest.style.backgroundColor = 'green'
@@ -143,9 +222,6 @@
       devicetest.style.backgroundColor = 'blue'
     
     }
-    
-    
-    
   </script>
 </body>
 </html>
