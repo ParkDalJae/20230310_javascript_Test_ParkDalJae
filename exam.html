@@ -13,6 +13,27 @@
     const a = _EXAMDATA;
     console.log(a); // 위 하이퍼링크된 js 파일 데이터
     // 자유롭게 활용
+    
+    
+    let browserWidth={
+      mobile : window.matchMedia(`screen and (max-width : ${_EXAMDATA.designInformation.breakPoint[0]})`),
+      tablet : window.matchMedia(`screen and (max-width : ${_EXAMDATA.designInformation.breakPoint[1]})`),
+      desktop : window.matchMedia(`screen and (max-width : ${_EXAMDATA.designInformation.breakPoint[2]})`)
+    }
+    
+    if(browserWidth.mobile.matches){
+      console.log("모바일 입니다.")
+      
+    }else if(browserWidth.tablet.matches){
+      console.log("탭 입니다.")
+      
+    } else{
+      console.log("PC 입니다.")
+
+    }
+    
+    
+    
   </script>
 </body>
 </html>
