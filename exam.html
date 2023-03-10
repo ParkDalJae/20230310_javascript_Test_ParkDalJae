@@ -14,22 +14,85 @@
     console.log(a); // 위 하이퍼링크된 js 파일 데이터
     // 자유롭게 활용
     
-    
+    const root = document.getElementById('root')
     let browserWidth={
       mobile : window.matchMedia(`screen and (max-width : ${_EXAMDATA.designInformation.breakPoint[0]})`),
       tablet : window.matchMedia(`screen and (max-width : ${_EXAMDATA.designInformation.breakPoint[1]})`),
       desktop : window.matchMedia(`screen and (max-width : ${_EXAMDATA.designInformation.breakPoint[2]})`)
     }
+
+    function makeElement(tagName, parent, eleId){         //id가 필요한 요소 생성 함수
+      let elementNew = document.createElement(tagName)
+      elementNew.id = eleId
+      parent.appendChild(elementNew)
+    }
+
+    function loopMakeElement(tagName, parent, eleLength){ //id가 필요 없는 다수 요소 생성 함수
+      for(let i=0;i<eleLength;i++){
+        let elementNew = document.createElement(tagName)
+        parent.appendChild(elementNew)
+      }
+    }
+
+    console.dir(root)
+    
+    makeElement('div',root,'headerWrap') //헤더랩
+    const headerWrap = document.getElementById('headerWrap')
+    console.dir(headerWrap)
+
+    
+    makeElement('div',headerWrap,'headerUp') //헤더 상단
+    const headerUp = document.getElementById('headerUp')
+    
+    makeElement('div',headerWrap,'headerDown') //헤더 하단
+    const headerDown = document.getElementById('headerD')
+    
+    makeElement('div',root,'mainWrap')//메인 랩
+    const mainWrap = document.getElementById('mainWrap')
+    // mainWrap.style.background = "black"
+    console.dir(mainWrap)
+    loopMakeElement('div',mainWrap,10)
+    
+    
+    mainWrap.children[0].style.backgroundColor = "black"
+    console.log(mainWrap.children[0])
+    for(let i=0;i<mainWrap.children.length;i++){
+      mainWrap.children[i].style.width = "100px"
+      mainWrap.children[i].style.height = "100px"
+      mainWrap.children[i].style.border = "1px black solid"
+      mainWrap.children[0].style.backgroundColor = "gray"
+      
+      if(browserWidth.mobile.matches){
+        mainWrap.children[i].style.backgroundColor = "green"
+        console.dir("몹")
+        
+      }else if(browserWidth.tablet.matches){
+        mainWrap.children[i].style.backgroundColor = "red"
+        console.dir("탭")
+        
+      } else{
+        mainWrap.children[i].style.backgroundColor = "blue"
+        console.dir("컴")
+      
+      }
+    }
+    
+    makeElement('div',root,'footerWrap')//푸터 랩
+    const footerWrap = document.getElementById('footerWrap')
+    console.dir(footerWrap)
+
+    
     
     if(browserWidth.mobile.matches){
       console.log("모바일 입니다.")
       
+      
     }else if(browserWidth.tablet.matches){
       console.log("탭 입니다.")
-      
-    } else{
-      console.log("PC 입니다.")
 
+    } else{
+      console.log("데스크탑 입니다.")
+    
     }
     
     

@@ -1,5 +1,5 @@
 const _EXAMDATA = {
-  teamInformation: {
+  teamExInformation: {
     teamNumber : 0,
     teamName: "팀명 작성",
     teamNameStory: "팀명은 이런이유로 만들었답니다!",
@@ -31,6 +31,176 @@ const _EXAMDATA = {
       },
     ]
   },
+  teamOneInformation: {
+    teamNumber : 1,
+    teamName: "만수무강",
+    teamNameStory: "장수를 기원하며 늘 건강하길 기원합니다.",
+    teamManager: "박달재",
+    teamManagerGitAddress: "https://github.com/ParkDalJae",
+    teamAllMember: [
+      {
+        memberNumber: 1,
+        name: "이세민",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/dltpals222"
+      },
+      {
+        memberNumber: 2,
+        name: "허진",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/skybluejean"
+      },
+      {
+        memberNumber: 3,
+        name: "이경택",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/KyoungTaekLee"
+      },
+      {
+        memberNumber: 4,
+        name: "정성철",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/pflying1"
+      },
+    ]
+  },
+
+  teamOneInformation: {
+    teamNumber : 1,
+    teamName: "만수무강",
+    teamNameStory: "장수를 기원하며 늘 건강하길 기원합니다.",
+    teamManager: "박달재",
+    teamManagerGitAddress: "https://github.com/ParkDalJae",
+    teamAllMember: [
+      {
+        memberNumber: 1,
+        name: "이세민",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/dltpals222"
+      },
+      {
+        memberNumber: 2,
+        name: "허진",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/skybluejean"
+      },
+      {
+        memberNumber: 3,
+        name: "이경택",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/KyoungTaekLee"
+      },
+      {
+        memberNumber: 4,
+        name: "정성철",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/pflying1"
+      },
+    ]
+  },
+
+  teamOneInformation: {
+    teamNumber : 1,
+    teamName: "만수무강",
+    teamNameStory: "장수를 기원하며 늘 건강하길 기원합니다.",
+    teamManager: "박달재",
+    teamManagerGitAddress: "https://github.com/ParkDalJae",
+    teamAllMember: [
+      {
+        memberNumber: 1,
+        name: "이세민",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/dltpals222"
+      },
+      {
+        memberNumber: 2,
+        name: "허진",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/skybluejean"
+      },
+      {
+        memberNumber: 3,
+        name: "이경택",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/KyoungTaekLee"
+      },
+      {
+        memberNumber: 4,
+        name: "정성철",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/pflying1"
+      },
+    ]
+  },
+
+  teamOneInformation: {
+    teamNumber : 1,
+    teamName: "만수무강",
+    teamNameStory: "장수를 기원하며 늘 건강하길 기원합니다.",
+    teamManager: "박달재",
+    teamManagerGitAddress: "https://github.com/ParkDalJae",
+    teamAllMember: [
+      {
+        memberNumber: 1,
+        name: "이세민",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/dltpals222"
+      },
+      {
+        memberNumber: 2,
+        name: "허진",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/skybluejean"
+      },
+      {
+        memberNumber: 3,
+        name: "이경택",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/KyoungTaekLee"
+      },
+      {
+        memberNumber: 4,
+        name: "정성철",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/pflying1"
+      },
+    ]
+  },
+
+  teamOneInformation: {
+    teamNumber : 1,
+    teamName: "만수무강",
+    teamNameStory: "장수를 기원하며 늘 건강하길 기원합니다.",
+    teamManager: "박달재",
+    teamManagerGitAddress: "https://github.com/ParkDalJae",
+    teamAllMember: [
+      {
+        memberNumber: 1,
+        name: "이세민",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/dltpals222"
+      },
+      {
+        memberNumber: 2,
+        name: "허진",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/skybluejean"
+      },
+      {
+        memberNumber: 3,
+        name: "이경택",
+        teamPosition: "팀원",
+        githubAddress: "https://www.github.com/KyoungTaekLee"
+      },
+      {
+        memberNumber: 4,
+        name: "정성철",
+        teamPosition: "팀원",
+        githubAddress: "https://github.com/pflying1"
+      },
+    ]
+  },
+  
   trainingInformation: {
     subject : [  
     "웹프로그래밍기본(HTML5&CSS3)",
